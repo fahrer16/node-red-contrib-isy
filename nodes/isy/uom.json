@@ -1,0 +1,826 @@
+﻿{
+  "0": {
+    "name": "Unit of measure is unknown",
+    "display": "",
+    "selectable": false,
+    "type": "None"
+    },
+  "1": {
+    "name": "ampere (amp)",
+    "display": "A",
+    "selectable": true,
+    "type": "Range"
+  },
+  "2": {
+    "name": "boolean",
+    "display": "",
+    "selectable": true,
+    "type": "Boolean"
+  },
+  "3": {
+    "name": "btu/h",
+    "display": "BTU/h",
+    "selectable": true,
+    "type": "Range"
+  },
+  "4": {
+    "name": "celsius (C)",
+    "display": "°C",
+    "selectable": true,
+    "type": "Range"
+  },
+  "5": {
+    "name": "centimeter (cm)",
+    "display": "cm",
+    "selectable": true,
+    "type": "Range"
+  },
+  "6": {
+    "name": "cubic feet",
+    "display": "ft³",
+    "selectable": true,
+    "type": "Range"
+  },
+  "7": {
+    "name": "cubic feet per minute (cfm)",
+    "display": "cfm",
+    "selectable": true,
+    "type": "Range"
+  },
+  "8": {
+    "name": "cubic meter",
+    "display": "m³",
+    "selectable": true,
+    "type": "Range"
+  },
+  "9": {
+    "name": "day",
+    "display": "day",
+    "selectable": true,
+    "type": "Range"
+  },
+  "10": {
+    "name": "days",
+    "display": "days",
+    "selectable": true,
+    "type": "Range"
+  },
+  "11": {
+    "name": "Deadbolt status",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "0": "Unlocked",
+      "100": "Locked",
+      "101": "Unknown",
+      "102": "Jammed"
+    }
+  },
+  "12": {
+    "name": "decibel",
+    "display": "dB",
+    "selectable": true,
+    "type": "Range"
+  },
+  "13": {
+    "name": "decibel A",
+    "display": "dBA",
+    "selectable": true,
+    "type": "Range"
+  },
+  "14": {
+    "name": "degree",
+    "display": "°",
+    "selectable": true,
+    "type": "Range"
+  },
+  "15": {
+    "name": "door lock alarm",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "1": "Master Code Changed",
+      "2": "Tamper Code Entry Limit",
+      "3": "Escutcheon Removed",
+      "4": "Key/Manually Locked",
+      "5": "Locked by Touch",
+      "6": "Key/Manually Unlocked",
+      "7": "Remote Locking Jammed Bolt",
+      "8": "Remotely Locked",
+      "9": "Remotely Unlocked",
+      "10": "Deadbolt Jammed",
+      "11": "Battery Too Low to Operate",
+      "12": "Critical Low Battery",
+      "13": "Low Battery",
+      "14": "Automatically Locked",
+      "15": "Automatic Locking Jammed Bolt",
+      "16": "Remotely Power Cycled",
+      "17": "Lock Handling Completed",
+      "19": "User Deleted",
+      "20": "User Added",
+      "21": "Duplicate PIN",
+      "22": "Jammed Bolt by Locking with Keypad",
+      "23": "Locked by Keypad",
+      "24": "Unlocked by Keypad",
+      "25": "Keypad Attempt outside Schedule",
+      "26": "Hardware Failure",
+      "27": "Factory Reset"
+    }
+  },
+  "16": {
+    "name": "european macroseismic",
+    "display": "EMS",
+    "selectable": true,
+    "type": "Range"
+  },
+  "17": {
+    "name": "fahrenheit",
+    "display": "°F",
+    "selectable": true,
+    "type": "Range"
+  },
+  "18": {
+    "name": "feet",
+    "display": "ft",
+    "selectable": true,
+    "type": "Range"
+  },
+  "19": {
+    "name": "hour",
+    "display": "hr",
+    "selectable": true,
+    "type": "Range"
+  },
+  "20": {
+    "name": "hours",
+    "display": "hr",
+    "selectable": true,
+    "type": "Range"
+  },
+  "21": {
+    "name": "absolute humidity",
+    "display": "AH",
+    "selectable": true,
+    "type": "Range"
+  },
+  "22": {
+    "name": "relative humidity",
+    "display": "%RH",
+    "selectable": true,
+    "type": "Range"
+  },
+  "23": {
+    "name": "inches of mercury (inHg)",
+    "display": "inHg",
+    "selectable": true,
+    "type": "Range"
+  },
+  "24": {
+    "name": "inches/hour",
+    "display": "in/hr",
+    "selectable": true,
+    "type": "Range"
+  },
+  "25": {
+    "name": "index",
+    "display": "",
+    "selectable": true,
+    "type": "Enum"
+  },
+  "26": {
+    "name": "kelvin",
+    "display": "K",
+    "selectable": true,
+    "type": "Range"
+  },
+  "27": {
+    "name": "keyword",
+    "display": "",
+    "selectable": true,
+    "type": "Keyword"
+  },
+  "28": {
+    "name": "kilogram (kg)",
+    "display": "kg",
+    "selectable": true,
+    "type": "Range"
+  },
+  "29": {
+    "name": "kilovolt (kV)",
+    "display": "kV",
+    "selectable": true,
+    "type": "Range"
+  },
+  "30": {
+    "name": "kilowatt (kW)",
+    "display": "kW",
+    "selectable": true,
+    "type": "Range"
+  },
+  "31": {
+    "name": "kilopascal (kPa)",
+    "display": "kPa",
+    "selectable": true,
+    "type": "Range"
+  },
+  "32": {
+    "name": "kilometers/hour (KPH)",
+    "display": "KPH",
+    "selectable": true,
+    "type": "Range"
+  },
+  "33": {
+    "name": "kilowatts/hour (kWH)",
+    "display": "kW/hr",
+    "selectable": true,
+    "type": "Range"
+  },
+  "34": {
+    "name": "liedu",
+    "display": "liedu",
+    "selectable": true,
+    "type": "Range"
+  },
+  "35": {
+    "name": "liter (l)",
+    "display": "L",
+    "selectable": true,
+    "type": "Range"
+  },
+  "36": {
+    "name": "lux",
+    "display": "lux",
+    "selectable": true,
+    "type": "Range"
+  },
+  "37": {
+    "name": "mercalli",
+    "display": "mercalli",
+    "selectable": true,
+    "type": "Range"
+  },
+  "38": {
+    "name": "meter (m)",
+    "display": "m",
+    "selectable": true,
+    "type": "Range"
+  },
+  "39": {
+    "name": "cubic meters/hour",
+    "display": "m³/hr",
+    "selectable": true,
+    "type": "Range"
+  },
+  "40": {
+    "name": "meters/sec (m/s)",
+    "display": "m/s",
+    "selectable": true,
+    "type": "Range"
+  },
+  "41": {
+    "name": "milliamp (mA)",
+    "display": "mA",
+    "selectable": true,
+    "type": "Range"
+  },
+  "42": {
+    "name": "millisecond (ms)",
+    "display": "ms",
+    "selectable": true,
+    "type": "Range"
+  },
+  "43": {
+    "name": "millivolt (mV)",
+    "display": "mV",
+    "selectable": true,
+    "type": "Range"
+  },
+  "44": {
+    "name": "minute",
+    "display": "min",
+    "selectable": true,
+    "type": "Range"
+  },
+  "45": {
+    "name": "duration in minutes",
+    "display": "min",
+    "selectable": true,
+    "type": "Range"
+  },
+  "46": {
+    "name": "millimeters/hour (mm/hr)",
+    "display": "mm/hr",
+    "selectable": true,
+    "type": "Range"
+  },
+  "47": {
+    "name": "month",
+    "display": "month",
+    "selectable": true,
+    "type": "Range"
+  },
+  "48": {
+    "name": "miles/hour (MPH)",
+    "display": "MPH",
+    "selectable": true,
+    "type": "Range"
+  },
+  "49": {
+    "name": "meters/second (MPS)",
+    "display": "m/s",
+    "selectable": true,
+    "type": "Range"
+  },
+  "50": {
+    "name": "ohm",
+    "display": "Ω",
+    "selectable": true,
+    "type": "Range"
+  },
+  "51": {
+    "name": "percent",
+    "display": "%",
+    "selectable": true,
+    "type": "Range"
+  },
+  "52": {
+    "name": "pound",
+    "display": "lb",
+    "selectable": true,
+    "type": "Range"
+  },
+  "53": {
+    "name": "Power Factor",
+    "display": "PF",
+    "selectable": true,
+    "type": "Range"
+  },
+  "54": {
+    "name": "Parts/Million (PPM)",
+    "display": "PPM",
+    "selectable": true,
+    "type": "Range"
+  },
+  "55": {
+    "name": "pulse count",
+    "display": "pulses",
+    "selectable": true,
+    "type": "Range"
+  },
+  "56": {
+    "name": "The raw value as reported by the device",
+    "display": "",
+    "selectable": true,
+    "type": "Range"
+  },
+  "57": {
+    "name": "second",
+    "display": "s",
+    "selectable": true,
+    "type": "Range"
+  },
+  "58": {
+    "name": "Duration in seconds",
+    "display": "s",
+    "selectable": true,
+    "type": "Range"
+  },
+  "59": {
+    "name": "seimens/meter",
+    "display": "S/m",
+    "selectable": true,
+    "type": "Range"
+  },
+  "60": {
+    "name": "body wave magnitude scale",
+    "display": "",
+    "selectable": true,
+    "type": "Range"
+  },
+  "61": {
+    "name": "Richter scale",
+    "display": "",
+    "selectable": true,
+    "type": "Range"
+  },
+  "62": {
+    "name": "moment magnitude scale",
+    "display": "",
+    "selectable": true,
+    "type": "Range"
+  },
+  "63": {
+    "name": "surface wave magnitude scale",
+    "display": "",
+    "selectable": true,
+    "type": "Range"
+  },
+  "64": {
+    "name": "shindo",
+    "display": "shindo",
+    "selectable": true,
+    "type": "Range"
+  },
+  "65": {
+    "name": "SML",
+    "display": "SML",
+    "selectable": true,
+    "type": "Range"
+  },
+  "66": {
+    "name": "Thermostat heat/cool state",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "0": "Idle",
+      "1": "Heating",
+      "2": "Cooling",
+      "3": "Fan Only",
+      "4": "Pending Heat",
+      "5": "Pending Cool",
+      "6": "Vent",
+      "7": "Aux Heat",
+      "8": "2nd Stage Heating",
+      "9": "2nd Stage Cooling",
+      "10": "2nd Stage Aux Heat",
+      "11": "3rd Stage Aux Heat "
+    }
+  },
+  "67": {
+    "name": "Thermostat mode",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "0": "Off",
+      "1": "Heat",
+      "2": "Cool",
+      "3": "Auto",
+      "4": "Aux/Emergency Heat",
+      "5": "Resume",
+      "6": "Fan Only",
+      "7": "Furnace",
+      "8": "Dry Air",
+      "9": "Moist Air",
+      "10": "Auto Changeover",
+      "11": "Energy Save Heat",
+      "12": "Energy Save Cool",
+      "13": "Away"
+    }
+  },
+  "68": {
+    "name": "Thermostat fan mode",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "0": "Auto",
+      "1": "On",
+      "2": "Auto High",
+      "3": "High",
+      "4": "Auto Medium",
+      "5": "Medium",
+      "6": "Circulation",
+      "7": "Humidity Circulation"
+    }
+  },
+  "69": {
+    "name": "US gallon",
+    "display": "gal",
+    "selectable": true,
+    "type": "Range"
+  },
+  "70": {
+    "name": "User number",
+    "display": "",
+    "selectable": true,
+    "type": "Range"
+  },
+  "71": {
+    "name": "UV index",
+    "display": "",
+    "selectable": true,
+    "type": "Range"
+  },
+  "72": {
+    "name": "volt",
+    "display": "V",
+    "selectable": true,
+    "type": "Range"
+  },
+  "73": {
+    "name": "watt",
+    "display": "W",
+    "selectable": true,
+    "type": "Range"
+  },
+  "74": {
+    "name": "watts/square meter",
+    "display": "W/m²",
+    "selectable": true,
+    "type": "Range"
+  },
+  "75": {
+    "name": "weekday",
+    "display": "",
+    "selectable": true,
+    "type": "Range"
+  },
+  "76": {
+    "name": "Wind Direction in degrees",
+    "display": "°",
+    "selectable": true,
+    "type": "Range"
+  },
+  "77": {
+    "name": "year",
+    "display": "yr",
+    "selectable": true,
+    "type": "Range"
+  },
+  "78": {
+    "name": "0-Off 100-On",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "0": "Off",
+      "100":  "On"
+    }
+  },
+  "79": {
+    "name": "0-Open 100-Close",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "0": "Open",
+      "100": "Close"
+    }
+  },
+  "80": {
+    "name": "Thermostat fan run state",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "0": "Auto",
+      "1": "On",
+      "2": "Auto High",
+      "3": "High",
+      "4": "Auto Medium",
+      "5": "Medium",
+      "6": "Circulation",
+      "7": "Humidity Circulation"
+    }
+  },
+  "81": {
+    "name": "Thermostat fan mode override",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "0": "Auto",
+      "1": "On",
+      "2": "Auto High",
+      "3": "High",
+      "4": "Auto Medium",
+      "5": "Medium",
+      "6": "Circulation",
+      "7": "Humidity Circulation"
+    }
+  },
+  "82": {
+    "name": "millimeter",
+    "display": "mm",
+    "selectable": true,
+    "type": "Range"
+  },
+  "83": {
+    "name": "kilometer",
+    "display": "km",
+    "selectable": true,
+    "type": "Range"
+  },
+  "84": {
+    "name": "Secure Mode 0-Unlock 1-Lock ",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "0": "Unlock",
+      "1": "Lock"
+    }
+  },
+  "85": {
+    "name": "Ohm Meter (Electrical resistivity)",
+    "display": "Ω",
+    "selectable": true,
+    "type": "Range"
+  },
+  "86": {
+    "name": "KiloOhm",
+    "display": "kΩ",
+    "selectable": true,
+    "type": "Range"
+  },
+  "87": {
+    "name": "cubic meter/cubic meter",
+    "display": "m³/m³",
+    "selectable": true,
+    "type": "Range"
+  },
+  "88": {
+    "name": "Water activity",
+    "display": "",
+    "selectable": true,
+    "type": "Range"
+  },
+  "89": {
+    "name": "rotations/Minute (RPM)",
+    "display": "RPM",
+    "selectable": true,
+    "type": "Range"
+  },
+  "90": {
+    "name": "Hertz (Hz)",
+    "display": "Hz",
+    "selectable": true,
+    "type": "Range"
+  },
+  "91": {
+    "name": "Angle Position degrees relative to North Pole",
+    "display": "°",
+    "selectable": true,
+    "type": "Range"
+  },
+  "92": {
+    "name": "Angle Position degrees relative to South Pole",
+    "display": "°",
+    "selectable": true,
+    "type": "Range"
+  },
+  "93": {
+    "name": "Power Management Alarm",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "1": "Power Applied",
+      "2": "Ac Mains Disconnected",
+      "3": "Ac Mains Reconnected",
+      "4": "Surge Detection",
+      "5": "Volt Drop Or Drift",
+      "6": "Over Current Detected",
+      "7": "Over Voltage Detected",
+      "8": "Over Load Detected",
+      "9": "Load Error",
+      "10": "Replace Battery Soon",
+      "11": "Replace Battery Now",
+      "12": "Battery Is Charging",
+      "13": "Battery Is Fully Charged",
+      "14": "Charge Battery Soon",
+      "15": " Charge Battery Now"
+    }
+  },
+  "94": {
+    "name": "Appliance Alarm",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "1": "Program Started",
+      "2": "Program In Progress",
+      "3": "Program Completed",
+      "4": "Replace Main Filter",
+      "5": "Failure To Set Target Temperature",
+      "6": "Supplying Water",
+      "7": "Water Supply Failure",
+      "8": "Boiling",
+      "9": "Boiling Failure",
+      "10": "Washing",
+      "11": "Washing Failure",
+      "12": "Rinsing",
+      "13": "Rinsing Failure",
+      "14": "Draining",
+      "15": "Draining Failure",
+      "16": "Spinning",
+      "17": "Spinning Failure",
+      "18": "Drying",
+      "19": "Drying Failure",
+      "20": "Fan Failure",
+      "21": "Compressor Failure"
+    }
+  },
+  "95": {
+    "name": "Home Health Alarm",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "emum": {
+      "1": "Leaving Bed",
+      "2": "Sitting On Bed",
+      "3": "Lying On Bed",
+      "4": "Posture Changed",
+      "5": "Sitting On Edge Of Bed"
+    }
+  },
+  "96": {
+    "name": "VOC Level",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "1": "Clean",
+      "2": "Slightly Polluted",
+      "3": "Moderately Polluted",
+      "4": "Highly Polluted"
+    }
+  },
+  "97": {
+    "name": "Barrier Status",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "0": "Closed",
+      "1-99": "Percent Closed (1% almost Closed, 99% almost Open)",
+      "100": "Open",
+      "101": "Unknown",
+      "102": "Stopped",
+      "103": "Closing",
+      "104": "Opening"
+    }
+  },
+  "98": {
+    "name": "Insteon Thermostat Mode",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "0": "Off",
+      "1": "Heat",
+      "2": "Cool",
+      "3": "Auto",
+      "4": "Fan Only",
+      "5": "Program Auto",
+      "6": "Program Heat",
+      "7": "Program Cool"
+    }
+  },
+  "99": {
+    "name": "Insteon Thermostat Fan Mode",
+    "display": "",
+    "selectable": true,
+    "type": "Fixed",
+    "enum": {
+      "7": "On",
+      "8": "Auto"
+    }
+  },
+  "100": {
+    "name": "Level from 0-255",
+    "display": "",
+    "selectable": true,
+    "type": "Range"
+  },
+  "101": {
+    "name": "Degree X 2",
+    "display": "°",
+    "selectable": true,
+    "type": "Range"
+  },
+  "102": {
+    "name": "Kilowatt Second",
+    "display": "kWs",
+    "selectable": true,
+    "type": "Range"
+  },
+  "103": {
+    "name": "Dollar",
+    "display": "$",
+    "selectable": true,
+    "type": "Range"
+  },
+  "104": {
+    "name": "Cent",
+    "display": "¢",
+    "selectable": true,
+    "type": "Range"
+  },
+  "105": {
+    "name": "Inch",
+    "display": "in",
+    "selectable": true,
+    "type": "Range"
+  },
+  "106": {
+    "name": "Millimeters per day",
+    "display": "mm/day",
+    "selectable": true,
+    "type": "Range"
+  }
+}

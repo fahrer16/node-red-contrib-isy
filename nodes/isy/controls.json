@@ -1,0 +1,418 @@
+﻿{
+  "QUERY": {
+    "name": "QUERY",
+    "label": "Query Device"
+  },
+  "ST": {
+    "name": "ST",
+    "label": "Status"
+  },
+  "OL": {
+    "name": "OL",
+    "label": "On Level"
+  },
+  "RR": {
+    "name": "RR",
+    "label": "Ramp Rate"
+  },
+  "DON": {
+    "name": "DON",
+    "label": "On"
+  },
+  "DFON": {
+    "name": "DFON",
+    "label": "Fast On"
+  },
+  "DOF": {
+    "name": "DOF",
+    "label": "Off"
+  },
+  "DFOF": {
+    "name": "DFOF",
+    "label": "Fast Off"
+  },
+  "BRT": {
+    "name": "BRT",
+    "label": "Brighten"
+  },
+  "DIM": {
+    "name": "DIM",
+    "label": "Dim"
+  },
+  "FDUP": {
+    "name": "FDUP",
+    "label": "Fade Up"
+  },
+  "FDDOWN": {
+    "name": "FDDOWN",
+    "label": "Fade Down"
+  },
+  "FDSTOP": {
+    "name": "FDSTOP",
+    "label": "Fade Stop"
+  },
+  "BEEP": {
+    "name": "BEEP",
+    "label": "Beep"
+  },
+  "RESET": {
+    "name": "RESET",
+    "label": "Reset values"
+  },
+  "ERR": {
+    "name": "ERR",
+    "label": "Error"
+  },
+  "CLITEMP": {
+    "name": "CLITEMP",
+    "label": "Current Temperature"
+  },
+  "CLISPH": {
+    "name": "CLISPH",
+    "label": "Heat Setpoint"
+  },
+  "CLISPC": {
+    "name": "CLISPC",
+    "label": "Cool Setpoint"
+  },
+  "CLIFS": {
+    "name": "CLIFS",
+    "label": "Fan Setting"
+  },
+  "CLIFSO": {
+    "name": "CLIFSO",
+    "label": "Fan Setting Override"
+  },
+  "CLIFRS": {
+    "name": "CLIFRS",
+    "label": "Fan Running State"
+  },
+  "CLIMD": {
+    "name": "CLIMD",
+    "label": "Thermostat Mode"
+  },
+  "CLISMD": {
+    "name": "CLISMD",
+    "label": "Schedule Mode"
+  },
+  "CLIHUM": {
+    "name": "CLIHUM",
+    "label": "Humidity"
+  },
+  "CLIHCS": {
+    "name": "CLIHCS",
+    "label": "Heat/Cool State"
+  },
+  "CLIEMD": {
+    "name": "CLIEMD",
+    "label": "Energy Mode"
+  },
+  "UOM": {
+    "name": "UOM",
+    "label": "Unit"
+  },
+  "CV": {
+    "name": "CV",
+    "label": "Current Voltage"
+  },
+  "CC": {
+    "name": "CC",
+    "label": "Current Current"
+  },
+  "PPW": {
+    "name": "PPW",
+    "label": "Polarized Power Used"
+  },
+  "CPW": {
+    "name": "CPW",
+    "label": "Current Power Used"
+  },
+  "TPW": {
+    "name": "TPW",
+    "label": "Total Power Used"
+  },
+  "PF": {
+    "name": "PF",
+    "label": "Power Factor"
+  },
+  "ADRPST": {
+    "name": "ADRPST",
+    "label": "Auto DR Processing State"
+  },
+  "BATLVL": {
+    "name": "BATLVL",
+    "label": "Battery level"
+  },
+  "UAC": {
+    "name": "UAC",
+    "label": "Valid user access code entered"
+  },
+  "USRNUM": {
+    "name": "USRNUM",
+    "label": "The user access code that associated with the most recent Alarm"
+  },
+  "ALARM": {
+    "name": "ALARM",
+    "label": "An alarm occurred (values are different for each device type)"
+  },
+  "SECMD": {
+    "name": "SECMD",
+    "label": "Device secure mode"
+  },
+  "BUSY": {
+    "name": "BUSY",
+    "label": "Device is Busy"
+  },
+  "CTL": {
+    "name": "CTL",
+    "label": "Controller Action"
+  },
+  "AWAKE": {
+    "name": "AWAKE",
+    "label": "Awake"
+  },
+  "DON3": {
+    "name": "DON3",
+    "label": "On 3 Key Presses"
+  },
+  "DON4": {
+    "name": "DON4",
+    "label": "On 4 Key Presses"
+  },
+  "DON5": {
+    "name": "DON5",
+    "label": "On 5 Key Presses"
+  },
+  "DOF3": {
+    "name": "DOF3",
+    "label": "Off 3 Key Presses"
+  },
+  "DOF4": {
+    "name": "DOF4",
+    "label": "Off 4 Key Presses"
+  },
+  "DOF5": {
+    "name": "DOF5",
+    "label": "Off 5 Key Presses"
+  },
+  "AIRFLOW": {
+    "name": "AIRFLOW",
+    "label": "Air Flow"
+  },
+  "ATMPRES": {
+    "name": "ATMPRES",
+    "label": "Atmospheric Pressure"
+  },
+  "BARPRES": {
+    "name": "BARPRES",
+    "label": "Barometric Pressure"
+  },
+  "ANGLPOS": {
+    "name": "ANGLPOS",
+    "label": "Angle Position"
+  },
+  "CO2LVL": {
+    "name": "CO2LVL",
+    "label": "CO2 Level"
+  },
+  "DELAY": {
+    "name": "DELAY",
+    "label": "Delay"
+  },
+  "DEWPT": {
+    "name": "DEWPT",
+    "label": "Dew Point"
+  },
+  "DISTANC": {
+    "name": "DISTANC",
+    "label": "Distance"
+  },
+  "DUR": {
+    "name": "DUR",
+    "label": "Duration"
+  },
+  "ELECCON": {
+    "name": "ELECCON",
+    "label": "Electrical Conductivity"
+  },
+  "ELECRES": {
+    "name": "ELECRES",
+    "label": "Electrical Resistivity"
+  },
+  "GPV": {
+    "name": "GPV",
+    "label": "General Purpose Value"
+  },
+  "GVOL": {
+    "name": "GVOL",
+    "label": "Water Volume"
+  },
+  "LUMIN": {
+    "name": "LUMIN",
+    "label": "Luminance"
+  },
+  "MODE": {
+    "name": "MODE",
+    "label": "Mode"
+  },
+  "MOIST": {
+    "name": "MOIST",
+    "label": "Moisture"
+  },
+  "PULSCNT": {
+    "name": "PULSCNT",
+    "label": "Pulse Count"
+  },
+  "RAINRT": {
+    "name": "RAINRT",
+    "label": "Rain Rate"
+  },
+  "ROTATE": {
+    "name": "ROTATE",
+    "label": "Rotation"
+  },
+  "SEISINT": {
+    "name": "SEISINT",
+    "label": "Seismic Intensity"
+  },
+  "SEISMAG": {
+    "name": "SEISMAG",
+    "label": "Seismic Magnitude"
+  },
+  "SOILT": {
+    "name": "SOILT",
+    "label": "Soil Temperature"
+  },
+  "SOLRAD": {
+    "name": "SOLRAD",
+    "label": "Solar Radiation"
+  },
+  "SPEED": {
+    "name": "SPEED",
+    "label": "Velocity"
+  },
+  "SVOL": {
+    "name": "SVOL",
+    "label": "Sound Volume"
+  },
+  "TANKCAP": {
+    "name": "TANKCAP",
+    "label": "Tank Capacity"
+  },
+  "TIDELVL": {
+    "name": "TIDELVL",
+    "label": "Tide Level"
+  },
+  "TIMEREM": {
+    "name": "TIMEREM",
+    "label": "Time remaining"
+  },
+  "UV": {
+    "name": "UV",
+    "label": "Ultraviolet"
+  },
+  "VOCLVL": {
+    "name": "VOCLVL",
+    "label": "Volatile Organic Compound (VOC) level"
+  },
+  "WATERT": {
+    "name": "WATERT",
+    "label": "Water Temperature"
+  },
+  "WEIGHT": {
+    "name": "WEIGHT",
+    "label": "Weight"
+  },
+  "WINDDIR": {
+    "name": "WINDDIR",
+    "label": "Wind Direction"
+  },
+  "WVOL": {
+    "name": "WVOL",
+    "label": "Water Volume"
+  },
+  "GV0": {
+    "name": "GV0",
+    "label": "Custom Control 0"
+  },
+  "GV1": {
+    "name": "GV1",
+    "label": "Custom Control 1"
+  },
+  "GV2": {
+    "name": "GV2",
+    "label": "Custom Control 2"
+  },
+  "GV3": {
+    "name": "GV3",
+    "label": "Custom Control 3"
+  },
+  "GV4": {
+    "name": "GV4",
+    "label": "Custom Control 4"
+  },
+  "GV5": {
+    "name": "GV5",
+    "label": "Custom Control 5"
+  },
+  "GV6": {
+    "name": "GV6",
+    "label": "Custom Control 6"
+  },
+  "GV7": {
+    "name": "GV7",
+    "label": "Custom Control 7"
+  },
+  "GV8": {
+    "name": "GV8",
+    "label": "Custom Control 8"
+  },
+  "GV9": {
+    "name": "GV9",
+    "label": "Custom Control 9"
+  },
+  "GV10": {
+    "name": "GV10",
+    "label": "Custom Control 10"
+  },
+  "GV11": {
+    "name": "GV11",
+    "label": "Custom Control 11"
+  },
+  "GV12": {
+    "name": "GV12",
+    "label": "Custom Control 12"
+  },
+  "GV13": {
+    "name": "GV13",
+    "label": "Custom Control 13"
+  },
+  "GV14": {
+    "name": "GV14",
+    "label": "Custom Control 14"
+  },
+  "GV15": {
+    "name": "GV15",
+    "label": "Custom Control 15"
+  },
+  "GV16": {
+    "name": "GV16",
+    "label": "Custom Control 16"
+  },
+  "GV17": {
+    "name": "GV17",
+    "label": "Custom Control 17"
+  },
+  "GV18": {
+    "name": "GV18",
+    "label": "Custom Control 18"
+  },
+  "GV19": {
+    "name": "GV19",
+    "label": "Custom Control 19"
+  },
+  "GV20": {
+    "name": "GV20",
+    "label": "Custom Control 20"
+  }
+}

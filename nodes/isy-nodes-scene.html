@@ -1,0 +1,292 @@
+﻿<!--START Scene Node-->
+<script type="text/x-red" data-template-name="ISY Scene">
+    <div class="form-row">
+        <label for="node-input-controller"><i class="fa fa-server"></i> Controller</label>
+        <input type="text" id="node-input-controller">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-header"></i> Name</label>
+        <input type="text" id="node-input-name" />
+    </div>
+    <!--<div class="form-row">
+        <label for="node-input-address"><i class="fa fa-header"></i> Address</label>
+        <input type="text" id="node-input-address" />
+    </div>-->
+    <div class="form-row" style="margin-top: 25px">
+        <div class="btn-group">
+            <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-align-justify"></i> Options <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a id='node-input-select-hideParent' href="#">Hide parent name</a></li>
+                <li><a id='node-input-select-showParent' href="#">Show parent name</a></li>
+            </ul>
+        </div>
+        <a class="btn btn-mini" id="node-input-refresh" href="#"><i class="icon-refresh"></i> Refresh</a>
+    </div>
+    <div class="form-row node-input-target-row">
+        <div id="node-input-target-container-div" style="min-height: 100px;position: relative;   box-sizing: border-box; border-radius: 2px; height: 180px;  border: 1px solid #ccc;overflow:hidden; ">
+            <div style="box-sizing: border-box; line-height: 20px; font-size: 0.8em; border-bottom: 1px solid #ddd; height: 20px;">
+                <div style="display: inline-block;">
+                    <a id="node-input-target-sort-label" href="#">
+                        <span>name</span><i class="node-input-sort-label-a fa fa-caret-down"></i><i class="node-input-sort-label-d fa fa-caret-up"></i>
+                    </a>
+                </div>
+                <div style="position: absolute; right: 10px; width: 50px; display: inline-block; text-align: right;">
+                    <a id="node-input-target-sort-address" href="#">
+                        <span>address</span><i class="node-input-sort-address-a fa fa-caret-down"></i><i class="node-input-sort-address-d fa fa-caret-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div id="node-input-target-div" style="background: #fbfbfb; box-sizing: border-box; position:absolute; top:20px;bottom:0;left:0px;right:0px; overflow-y: scroll; overflow-x: hidden;">
+                <ul id="node-input-target-container" style=" list-style-type:none; margin: 0;"></ul>
+            </div>
+        </div>
+    </div>
+</script>
+<style>
+    #node-input-target-container {
+        position: relative;
+    }
+
+        #node-input-target-container li {
+            padding: 2px 5px;
+            background: none;
+            font-size: 0.8em;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+            #node-input-target-container li label {
+                margin-bottom: 0;
+                width: 100%;
+            }
+
+                #node-input-target-container li label input {
+                    vertical-align: top;
+                    width: 15px;
+                    margin-right: 10px;
+                }
+
+            #node-input-target-container li:hover,
+            #node-input-target-container li:hover /*.node-input-target-node-address*/ {
+                background: #f0f0f0;
+            }
+
+    .highlight {
+        background-color: #4286f4;
+    }
+
+    .node-input-target-node-address {
+        position: absolute;
+        right: 0px;
+        padding-right: 10px;
+        padding-left: 10px;
+        font-size: 0.8em;
+        /*background: #fbfbfb;*/
+    }
+</style>
+<script type="text/x-red" data-help-name="ISY Scene">
+    <p>Represents a scene node from an ISY 994i controller.  Allows commands to be issued to a scene.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">boolean | number</span></dt>
+        <dd>Simple command for ISY scene.  If boolean, issues DON command for true, DOF command for false.</dd>
+        <dt>cmd<span class="property-type">string</span></dt>
+        <dd>Command for ISY scene.  Accepts string for command to be issued to device. (e.g. DON, DOF)</dd>
+    </dl>
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>name<span class="property-type">string</span></dt>
+        <dd>Device Name.</dd>
+        <dt>address<span class="property-type">string</span></dt>
+        <dd>Device Address.</dd>
+        <dt>enabled<span class="property-type">boolean</span></dt>
+        <dd>Device enabled</dd>
+        <dt>parent<span class="property-type">string</span></dt>
+        <dd>Address of parent device</dd>
+        <dt>parentType<span class="property-type">number</span></dt>
+        <dd>Type of parent node.  0=unknown, 1=node, 2=group, 3=folder</dd>
+        <dt>pnode<span class="property-type">string</span></dt>
+        <dd>Address of this device's primary node</dd>
+        <dt>nodes<span class="property-type">array</span></dt>
+        <dd>Array of addresses of nodes in scene</dd>
+    </dl>
+    <h3>Details</h3>
+    <p>
+        This node requires a connection to a UDI ISY994i controller to be configured. This is configured by clicking the pencil icon.
+    </p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType("ISY Scene", {
+        category: "UDI ISY994i",
+        defaults: {
+            name: { value: "" },
+            controller: { type: "isy-controller", required: true },
+            address: { value: "", required: true }
+        },
+        color: "#A6BBCF",
+        inputs: 1,
+        outputs: 1,
+        icon: "light.png",
+        label: function () {
+            return this.name || "ISY Scene";
+        },
+        labelStyle: function () {
+            return this.name ? "node_label_italic" : "";
+        },
+        oneditprepare: function () {
+            var sceneList = $("#node-input-target-container");
+            var hasName = ((this.name || '') != '');
+            var node = this;
+            node.tempAddress = node.address || '';
+            node.tempName = '';
+            node.showParents = true;
+            createSceneList();
+
+            this.resize = function () {
+                var rows = $("#dialog-form>div:not(.node-input-target-row)");
+                var height = $("#dialog-form").height();
+                for (var i = 0; i < rows.size(); i++) {
+                    height -= $(rows[i]).outerHeight(true);
+                }
+                var editorRow = $("#dialog-form>div.node-input-target-row");
+                height -= (parseInt(editorRow.css("marginTop")) + parseInt(editorRow.css("marginBottom")));
+                $("#node-input-target-container-div").css("height", height + "px");
+            };
+
+            function createSceneList() {
+                sceneList.empty();
+                var scenes = {};
+                var controllerID = $("#node-input-controller").val();
+                //console.log(controllerID);
+                //var controllerNode = RED.nodes.node(node.controller); //get the selected config node
+                $.getJSON('ISY/' + controllerID + '/scenes', function (data) {
+                    scenes = data;
+                    var $scrollTo = '';
+                    for (var i in scenes) {
+                        var thisAddress = scenes[i].address;
+                        var thisName = scenes[i].name;
+                        var thisParentName = scenes[i].parentName;
+                        var container = $('<li/>', { id: thisAddress, class: "node-input-target-node" });
+
+                        var row = $('<label/>', { for: "node-input-target-node-" + thisAddress }).appendTo(container);
+
+                        container.on('mouseup', function (e) {
+                            node.tempAddress = $(this).find(".node-input-target-node-address").text();
+                            node.tempName = $(this).find(".node-input-target-node-label").text().trim();
+                            $(".node-input-target-node").children().removeClass("highlight"); //Un-highlight all entries
+                            $(this).children().addClass("highlight"); //highlight the selected entry
+                            if (!hasName) {
+                                var shortName = node.tempName.match(/([^/]+)$/)[1];
+                                $("#node-input-name:text").val(shortName);
+                            }
+                        });
+
+                        var labelSpan = $('<span>');
+                        var displayName = '';
+                        if (node.showParents && thisParentName != '') {
+                            displayName = thisParentName + ' / ' + thisName;
+                        } else {
+                            displayName = ' ' + thisName;
+                        }
+                        $('<span>', { class: "node-input-target-node-label", style: "white-space:nowrap" }).text(displayName).appendTo(row);
+                        $('<span>', { class: "node-input-target-node-address" }).text(thisAddress).appendTo(row);
+
+                        container.appendTo(sceneList);
+
+                        if (thisAddress == node.tempAddress) {
+                            $(container).children().addClass("highlight"); //highlight this entry if it is the currently selected node
+                        }
+                    }
+                    sortSceneList('label');
+                    scrollToSelected();
+                });
+            }
+
+            function scrollToSelected() {
+                if (node.tempAddress == '') { return; }
+                try {
+                    var list = $("#node-input-target-div");
+                    var scrollTo = $('li.node-input-target-node#' + node.tempAddress);
+
+                    if (scrollTo) {
+                        list.scrollTop(
+                            scrollTo.offset().top - list.offset().top + list.scrollTop()
+                        );
+                    }
+                } catch (err) {
+
+                }
+            }
+
+            function sortSceneList(sortOn) {
+                var currentSort = sceneList.data('currentSort');
+                var currentSortOrder = sceneList.data('currentSortOrder');
+                if (!currentSort) {
+                    currentSort = sortOn;
+                    currentSortOrder = 'a';
+                } else {
+                    if (currentSort === sortOn) {
+                        currentSortOrder = (currentSortOrder === 'a' ? 'd' : 'a');
+                    } else {
+                        currentSortOrder = 'a';
+                    }
+                    currentSort = sortOn;
+                }
+                sceneList.data('currentSort', currentSort);
+                sceneList.data('currentSortOrder', currentSortOrder);
+                $("#node-input-target-container-div .fa").hide();
+                $(".node-input-sort-" + currentSort + "-" + currentSortOrder).show();
+                var items = sceneList.find("li").get();
+                items.sort(function (a, b) {
+                    var labelA = $(a).find(".node-input-target-node-" + currentSort).text().toLowerCase();
+                    var labelB = $(b).find(".node-input-target-node-" + currentSort).text().toLowerCase();
+                    if (labelA < labelB) { return currentSortOrder === 'a' ? -1 : 1; }
+                    if (labelA > labelB) { return currentSortOrder === 'a' ? 1 : -1; }
+                    return 0;
+                });
+                $.each(items, function (i, li) {
+                    sceneList.append(li);
+                });
+            }
+            $("#node-input-target-sort-label").click(function (e) {
+                e.preventDefault();
+                sortSceneList('label');
+                scrollToSelected();
+            });
+            $("#node-input-target-sort-address").click(function (e) {
+                e.preventDefault();
+                sortSceneList('address');
+                scrollToSelected();
+            });
+            $("#node-input-select-hideParent").click(function (e) {
+                if (node.showParents) {
+                    node.showParents = false;
+                    createSceneList();
+                }
+            });
+            $("#node-input-select-showParent").click(function (e) {
+                if (!node.showParents) {
+                    node.showParents = true;
+                    createSceneList();
+                }
+            });
+            $("#node-input-refresh").click(function (e) {
+                createSceneList();
+            });
+            $("#node-input-controller").change(function () {
+                createSceneList();
+            });
+        },
+        oneditsave: function () {
+            this.address = this.tempAddress;
+            if (!this.name || this.name == 'ISY Scene') {
+                this.name = this.tempName;
+            }
+        },
+        oneditresize: function (size) {
+            this.resize();
+        }
+    });
+</script>
+<!--END Scene Node-->

@@ -1,0 +1,46 @@
+﻿<!--START Controller Node-->
+<script type="text/x-red" data-template-name="isy-controller">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-header"></i> Name</label>
+        <input type="text" id="node-config-input-name" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-ip"><i class="fa fa-server"></i> ISY 994i IP</label>
+        <input type="text" id="node-config-input-ip" style="width: 60%;" />
+        <!--TODO: Add search function for ISY <a id="node-config-input-scan" class="editor-button"><i class="fa fa-search"></i></a>-->
+    </div>
+    <div class="form-row">
+        <input type="checkbox" id="node-config-input-useHttps" style="margin-left: 30px; height: 1em;display: inline-block; width: auto; vertical-align: middle;">
+        <label for="node-config-input-useHttps" style="width: auto;">Use HTTPS</label>
+    </div>
+    <div class="form-row">
+        <label for="node-input-username"><i class="fa fa-user-o"></i> Username</label>
+        <input type="text" id="node-config-input-username">
+    </div>
+    <div class="form-row">
+        <label for="node-input-password"><i class="fa fa-lock"></i> Password</label>
+        <input type="password" id="node-config-input-password">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType("isy-controller", {
+        category: "config",
+        defaults: {
+            name: { value: "", required: false },
+            ip: { value: "", required: true },
+            useHttps: { value: false, required: false }
+        },
+        credentials: {
+            username: { type: "text" },
+            password: { type: "password" }
+        },
+        label: function () {
+            return this.name || this.ip || 'ISY Controller';
+        },
+        labelStyle: function () {
+            return this.name ? "node_label_italic" : "";
+        }
+    });
+</script>
+<!--END Controller Node-->

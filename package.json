@@ -1,0 +1,35 @@
+{
+  "name": "node-red-contrib-isy",
+  "version": "1.0.0",
+  "description": "UDI ISY994i integration for Node-RED",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "fast-deep-equal": "^1.0.0",
+    "faye-websocket": "^0.11.1",
+    "left-pad": "^1.2.0",
+    "restler": "^3.4.0",
+    "xmldoc": "^1.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fahrer16/node-red-contrib-isy.git"
+  },
+  "keywords": [
+    "node-red",
+    "isy",
+    "udi"
+  ],
+  "node-red": {
+    "nodes": {
+      "isy-controller": "nodes/isy-nodes-controller.js",
+      "isy-websocket": "nodes/isy-nodes-websocket.js",
+      "isy-node": "nodes/isy-nodes-node.js",
+      "isy-scene": "nodes/isy-nodes-scene.js",
+      "isy-variable": "nodes/isy-nodes-variable.js",
+      "isy-program": "nodes/isy-nodes-program.js"
+    }
+  },
+  "author": {
+    "name": "Brian Feeney"
+  }
+}
