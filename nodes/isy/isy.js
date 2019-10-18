@@ -19,7 +19,8 @@ var ISY = function (controller_node, address, username, password, useHttps) {
     this.password = password;
     this.options = {
         username: this.userName,
-        password: this.password
+        password: this.password,
+	timeout: 50000
     };
 
     this.uom = uom;
@@ -72,7 +73,18 @@ var ISY = function (controller_node, address, username, password, useHttps) {
         if (isy.initialized.config && isy.initialized.nodeFolders && isy.initialized.nodes && isy.initialized.scenes && isy.initialized.programs && isy.initialized.int_variables && isy.initialized.state_variables && !isy.connected) {
             isy.initializeWebSocket();
             isy.watchdogTimer = setInterval(isy.websocketWatchdog.bind(isy), 60000);
-        }
+// CET: Added Else so as to report if the above failed.
+        } else {
+	    this.node.log('Failed to connect because one of the following were false');
+	    this.node.log('config:' + isy.initialized.config + 
+		'NodeFolders:' + isy.initialized.nodeFolders +
+		'nodes:' + isy.initialized.nodes +
+		'scenes:' + isy.initialized.scenes +
+		'programs:' + isy.initialized.programs +
+		'int_variables:' + isy.initialized.int_variables +
+		'state_variables:' + isy.initialized.state_variables +
+		'connected:' + isy.connected + ' should be false!');
+	}
     });
 
     this.initializeWebSocket = function () {
@@ -447,14 +459,27 @@ var ISY = function (controller_node, address, username, password, useHttps) {
                     isy.node.error("Unable to contact the ISY to get the configuration: " + result.message);
                 }
                 else {
+// CET: uncommented this debug line.
+ isy.node.log('DEBUG line 463. inside else for contacting the ISY' + isy.address.toString() );
+//isy.node.log('DEBUG line 463 (result):' + result );
                     var document = new xmldoc.XmlDocument(result);
 
                     //Get ISY version number and check whether it supports node servers:
                     try {
-                        isy.ISYVersion = document.childNamed('app_full_version').val;
+			if (document.childNamed('app_full_version') !== undefined ) {
+                            isy.ISYVersion = document.childNamed('app_full_version').val;
+			} else {
+			    isy.node.warn('ISY version < 5, using app_version');
+                            isy.ISYVersion = document.childNamed('app_version').val;
+			}
 
                         //determine the number of node servers supported:
-                        var nodeServersSupported = (document.childNamed('nodedefs').val == 'true');
+			if (document.childNamed('nodedefs') !== undefined ) {
+                            var nodeServersSupported = (document.childNamed('nodedefs').val == 'true');
+			} else {	
+			    isy.node.warn('ISY does not support nodedef');
+			    var nodeServersSupported = 0;
+			}
 
                         if (!nodeServersSupported) {
                             isy.nodeServersSupported = 0;
@@ -506,7 +531,9 @@ var ISY = function (controller_node, address, username, password, useHttps) {
             isy.node.error("ISY-JS: Abort while contacting ISY for the configuration");
         }).on('timeout', function (ms) {
             isy.node.error("ISY-JS: Timed out contacting ISY for the configuration");
-        });
+        }).on('success', function (data, response) {
+	    isy.node.log("ISY-JS: Success...");
+	});
     }
 
     this.getNodesAndScenes = function () {
@@ -597,10 +624,15 @@ var ISY = function (controller_node, address, username, password, useHttps) {
             }
             else {
                 try {
+isy.node.log("DEBUG line 611: result='" + result );
                     var document = new xmldoc.XmlDocument(result);
-                    var variables = document.childrenNamed('var')
+// CET: Commented next line out, and modified var to vars. Since thats what
+// I saw was being returned from the ISY.
+//                    var variables = document.childrenNamed('var')
+                    var variables = document.childrenNamed('vars')
                     for (var index = 0; index < variables.length; index++) {
                         var type = variables[index].attr.type;
+isy.node.log("DEBUG line 619: type='" + type + "'");
                         var var_id = variables[index].attr.id;
                         var id = type + '_' + var_id;
                         if (id in isy.variables) { //variable has already been added locally
@@ -611,16 +643,25 @@ var ISY = function (controller_node, address, username, password, useHttps) {
                             isy.variables[newVariable.id] = newVariable;
                         }
                     }
-                    isy.node.debug('Finished loading ' + type_string + ' variables from ISY at ' + isy.address.toString());
-                    isy._getVariableNames(type)
+// CET: Added IF and Else to check if variables are event defined.
+		    if ( variables.length == 0 ) {
+			isy.node.log('No Variables defined on '+ isy.address.toString() );
+// mark variables as initialized. since there are none.
+                        isy.initialized.int_variables = true;
+                        isy.initialized.state_variables = true;
+		    } else {
+                    	isy.node.debug('Finished loading ' + type_string + ' variables from ISY at ' + isy.address.toString());
+isy.node.log("DEBUG line 631: type='" + type + "'");
+                    	isy._getVariableNames(type)
                     //if (type == 1) {
                     //    isy.initialized.int_variables = true;
                     //} else if (type == 2) {
                     //    isy.initialized.state_variables = true;
                     //}
                     //isy.events.emit('item_init_complete', isy);
+		    }
                 } catch (err) {
-                    isy.node.warn('Error loading variables from ISY: ' + err);
+                       isy.node.warn('Error loading variables from ISY: ' + err);
                 }
             }
         }).on('error', function (err, response) {
@@ -744,6 +785,8 @@ var ISY = function (controller_node, address, username, password, useHttps) {
                 else {
                     var document = new xmldoc.XmlDocument(result);
                     var nodes = document.childrenNamed('node');
+// CET: added a debug line. Unindented so it can easily be removed.
+isy.node.log("found " + nodes.length + " nodes, processing for " + isy.address);
                     for (index = 0; index < nodes.length; index++) {
                         try {
                             var address = nodes[index].attr.id;
@@ -759,6 +802,8 @@ var ISY = function (controller_node, address, username, password, useHttps) {
                     }
                     isy.initialized.nodes = true;
                     isy.events.emit('item_init_complete', isy);
+// CET: added log.
+		    isy.node.log('item_init_completed for ' + isy.address);
                 }
             } catch (err) {
                 isy.node.error("Error processing node status: " + err);
