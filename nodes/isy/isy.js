@@ -19,8 +19,7 @@ var ISY = function (controller_node, address, username, password, useHttps) {
     this.password = password;
     this.options = {
         username: this.userName,
-        password: this.password,
-	timeout: 50000
+        password: this.password
     };
 
     this.uom = uom;
@@ -460,7 +459,7 @@ var ISY = function (controller_node, address, username, password, useHttps) {
                 }
                 else {
 // CET: uncommented this debug line.
- isy.node.log('DEBUG line 463. inside else for contacting the ISY' + isy.address.toString() );
+// isy.node.log('DEBUG line 463. inside else for contacting the ISY' + isy.address.toString() );
 //isy.node.log('DEBUG line 463 (result):' + result );
                     var document = new xmldoc.XmlDocument(result);
 
