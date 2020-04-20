@@ -163,16 +163,25 @@ ISYNode.prototype.runCmd = function (cmd, params = []) {
     try {
         ///rest/nodes/<node-id>/cmd/<command_name>/<param1>/<param2>/.../<param5>
         //this.controller.node.trace('Command received. cmd: ' + cmd.toString() + ', params: ' + params.toString());
-        var url = '/rest/nodes/' + this.address + '/cmd/' + cmd;
 
-        if (Array.isArray(params) && params != []) {
-            params.forEach(function (value, index) {
-                url += ('/' + value);
-            });
-        } else {
-            url += '/' + params.toString();
-        }
+// CET: Added If == Query to handle Queries since it is not part of command from the Rest documentation
+        var url ="";
+	if ( cmd == "QUERY" ) {
+		url = '/rest/query/' + this.address;
+	} else {
+        	url = '/rest/nodes/' + this.address + '/cmd/' + cmd;
+	
 
+        	if (Array.isArray(params) && params != []) {
+            		params.forEach(function (value, index) {
+                		url += ('/' + value);
+            		});
+        	} else {
+            		url += '/' + params.toString();
+        	}
+	}
+
+        this.controller.node.log('Sending command (' + cmd + ') as url ('+url+') ');
         this.controller.REST(url);
     } catch (err) {
         this.controller.node.warn('Error issuing command (' + cmd + ') to scene ' + this.id + ': ' + err);
