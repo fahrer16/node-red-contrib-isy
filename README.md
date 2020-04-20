@@ -16,3 +16,4 @@ This project is in no way supported nor endorsed by UDI nor the author.  No warr
 
 ### Version History:
 * 1.0.0: Initial Release
+* 1.0.1: Merge fork with bug fixes
